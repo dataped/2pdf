@@ -1,21 +1,23 @@
-package main
+package dpdf
 
 import (
 	"fmt"
 	_ "image/jpeg" // Importing the image/jpeg package for JPEG decoding
 
+	"github.com/google/uuid"
 	"github.com/jung-kurt/gofpdf"
 )
 
-func main() {
-	outputPDF := "merged_images.pdf"
-	imageFiles := []string{"image1.jpeg", "image2.jpg", "image3.jpeg"} // Replace with your image file paths
+func MergeFiles(imageFiles []string) string {
+	outputPDF := uuid.New().String() + ".pdf"
+	//imageFiles := []string{"image1.jpeg", "image2.jpg", "image3.jpeg"} // Replace with your image file paths
 
 	if err := mergeImagesToPDF(outputPDF, imageFiles); err != nil {
 		fmt.Println("Error:", err)
 	} else {
 		fmt.Println("PDF created successfully:", outputPDF)
 	}
+	return outputPDF
 }
 
 func mergeImagesToPDF(outputPDF string, imageFiles []string) error {
