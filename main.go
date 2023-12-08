@@ -8,8 +8,8 @@ import (
 	"github.com/jung-kurt/gofpdf"
 )
 
-func MergeFiles(imageFiles []string) string {
-	outputPDF := uuid.New().String() + ".pdf"
+func MergeFiles(uploadDir string, imageFiles []string) string {
+	outputPDF := uploadDir + "/" + uuid.New().String() + ".pdf"
 	//imageFiles := []string{"image1.jpeg", "image2.jpg", "image3.jpeg"} // Replace with your image file paths
 
 	if err := mergeImagesToPDF(outputPDF, imageFiles); err != nil {
