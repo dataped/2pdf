@@ -1,4 +1,4 @@
-module github.com/dataped/2pdf
+module github.com/dataped/mapdf
 
 go 1.21.4
 

@@ -1,4 +1,4 @@
-package dpdf
+package mapdf
 
 type Filelists struct {
 	User          string
