@@ -7,3 +7,7 @@ type Filelists struct {
 	Halaman       uint8
 	Filename      string
 }
+
+type LoginHeader struct {
+	Login string `reqHeader:"login"`
+}
