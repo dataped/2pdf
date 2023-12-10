@@ -2,7 +2,10 @@ package mapdf
 
 import (
 	"fmt"
+
+	_ "image/gif"
 	_ "image/jpeg" // Importing the image/jpeg package for JPEG decoding
+	_ "image/png"
 
 	"github.com/google/uuid"
 	"github.com/jung-kurt/gofpdf"
