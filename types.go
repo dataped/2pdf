@@ -7,6 +7,7 @@ type Filelists struct {
 	Halaman       uint8  `json:"halaman" bson:"halaman"`
 	Filename      string `json:"filename" bson:"filename"`
 	Urutan        uint8  `json:"urutan" bson:"urutan"`
+	Content       string `json:"content" bson:"content"`
 }
 
 type LoginHeader struct {
