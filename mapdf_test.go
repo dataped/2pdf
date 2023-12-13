@@ -12,12 +12,12 @@ func TestSendFile(t *testing.T) {
 	filePath := "./image1.jpeg"
 	formdataName := "file"
 
-	responseBody, err := PostFileWithHeader(targetURL, tokenKey, tokenValue, filePath, formdataName)
+	responseBody, err := PostFileWithHeader[ResponseKomarFile](targetURL, tokenKey, tokenValue, filePath, formdataName)
 	if err != nil {
 		fmt.Println("Error:", err)
 		return
 	}
 
-	fmt.Println("Response:", string(responseBody))
+	fmt.Println(responseBody)
 
 }

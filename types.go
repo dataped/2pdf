@@ -33,3 +33,10 @@ type Ktp struct {
 	Nationality   string `json:"nationality"`
 	ValidUntil    string `json:"valid_until"`
 }
+
+type ResponseKomarFile struct {
+	Code    uint8  `json:"code"`
+	Success bool   `json:"success"`
+	Status  string `json:"status"`
+	Data    string `json:"data"`
+}
