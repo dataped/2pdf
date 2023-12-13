@@ -1,7 +1,7 @@
 package mapdf
 
 import (
-	"github.com/otiai10/gosseract"
+	"github.com/otiai10/gosseract/v2"
 )
 
 func ReadContent(filepath string) (content string, err error) {

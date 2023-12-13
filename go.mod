@@ -6,7 +6,7 @@ require (
 	github.com/gofiber/fiber/v2 v2.51.0
 	github.com/google/uuid v1.4.0
 	github.com/jung-kurt/gofpdf v1.16.2
-	github.com/otiai10/gosseract v2.2.1+incompatible
+	github.com/otiai10/gosseract/v2 v2.4.1
 )
 
 require (
@@ -15,7 +15,6 @@ require (
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
 	github.com/mattn/go-runewidth v0.0.15 // indirect
-	github.com/otiai10/mint v1.6.3 // indirect
 	github.com/rivo/uniseg v0.2.0 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasthttp v1.50.0 // indirect
