@@ -2,17 +2,18 @@ package mapdf
 
 import (
 	"bytes"
+	"encoding/json"
 	"io"
 	"mime/multipart"
 	"net/http"
 	"os"
 )
 
-func PostFileWithHeader(targetURL, tokenKey, tokenValue, filePath, formdataName string) ([]byte, error) {
+func PostFileWithHeader[T any](targetURL, tokenKey, tokenValue, filePath, formdataName string) (result T, err error) {
 	// Open the file
 	file, err := os.Open(filePath)
 	if err != nil {
-		return nil, err
+		return
 	}
 	defer file.Close()
 
@@ -23,13 +24,13 @@ func PostFileWithHeader(targetURL, tokenKey, tokenValue, filePath, formdataName 
 	// Create a part for the file
 	filePart, err := writer.CreateFormFile(formdataName, filePath)
 	if err != nil {
-		return nil, err
+		return
 	}
 
 	// Copy the file content to the part
 	_, err = io.Copy(filePart, file)
 	if err != nil {
-		return nil, err
+		return
 	}
 
 	// Add the token as a form field
@@ -41,7 +42,7 @@ func PostFileWithHeader(targetURL, tokenKey, tokenValue, filePath, formdataName 
 	// Create a new HTTP request with the form data
 	request, err := http.NewRequest("POST", targetURL, &requestBody)
 	if err != nil {
-		return nil, err
+		return
 	}
 
 	// Set the content type header
@@ -56,15 +57,18 @@ func PostFileWithHeader(targetURL, tokenKey, tokenValue, filePath, formdataName 
 	// Perform the request
 	response, err := client.Do(request)
 	if err != nil {
-		return nil, err
+		return
 	}
 	defer response.Body.Close()
 
 	// Read the response body
 	responseBody, err := io.ReadAll(response.Body)
 	if err != nil {
-		return nil, err
+		return
+	}
+	if err = json.Unmarshal(responseBody, &result); err != nil {
+		return
 	}
 
-	return responseBody, nil
+	return
 }
