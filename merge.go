@@ -28,7 +28,7 @@ func mergeImagesToPDF(outputPDF string, imageFiles []string) error {
 	pdf.AddPage()
 
 	for _, imageFile := range imageFiles {
-		pdf.ImageOptions(imageFile, 10, 10, 0, 0, false, gofpdf.ImageOptions{ImageType: "JPG", ReadDpi: true}, 0, "")
+		pdf.ImageOptions(imageFile, 10, 10, 0, 0, false, gofpdf.ImageOptions{ReadDpi: true}, 0, "")
 		pdf.AddPage()
 	}
 
