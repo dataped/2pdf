@@ -23,7 +23,7 @@
         const formData = new FormData();
         formData.append('image', file);
 
-        fetch('https://mrt.ulbi.ac.id/notif/upload', {
+        fetch('http://localhost:3000/upload', {
             method: 'POST',
             body: formData,
         })
