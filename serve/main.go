@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+
+	"github.com/dataped/mapdf"
 )
 
 func main() {
@@ -12,7 +14,7 @@ func main() {
 	filePath := "./image1.jpeg"
 	formdataName := "file"
 
-	responseBody, err := mapdf.postFileWithHeader(targetURL, tokenKey, tokenValue, filePath, formdataName)
+	responseBody, err := mapdf.PostFileWithHeader(targetURL, tokenKey, tokenValue, filePath, formdataName)
 	if err != nil {
 		fmt.Println("Error:", err)
 		return

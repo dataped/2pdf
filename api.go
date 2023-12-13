@@ -8,7 +8,7 @@ import (
 	"os"
 )
 
-func postFileWithHeader(targetURL, tokenKey, tokenValue, filePath, formdataName string) ([]byte, error) {
+func PostFileWithHeader(targetURL, tokenKey, tokenValue, filePath, formdataName string) ([]byte, error) {
 	// Open the file
 	file, err := os.Open(filePath)
 	if err != nil {
