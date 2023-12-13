@@ -11,7 +11,8 @@ type Filelists struct {
 }
 
 type LoginHeader struct {
-	Login string `reqHeader:"login"`
+	Login  string `reqHeader:"login"`
+	Origin string `reqHeader:"origin"`
 }
 
 type Ktp struct {
