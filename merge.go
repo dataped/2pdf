@@ -1,8 +1,6 @@
 package mapdf
 
 import (
-	"fmt"
-
 	_ "image/gif"
 	_ "image/jpeg" // Importing the image/jpeg package for JPEG decoding
 	_ "image/png"
@@ -11,16 +9,14 @@ import (
 	"github.com/jung-kurt/gofpdf"
 )
 
-func MergeFiles(uploadDir string, imageFiles []string) string {
-	outputPDF := uploadDir + "/" + uuid.New().String() + ".pdf"
+func MergeFiles(uploadDir string, imageFiles []string) (outputPDF string, err error) {
+	outputPDF = uploadDir + "/" + uuid.New().String() + ".pdf"
 	//imageFiles := []string{"image1.jpeg", "image2.jpg", "image3.jpeg"} // Replace with your image file paths
 
-	if err := mergeImagesToPDF(outputPDF, imageFiles); err != nil {
-		fmt.Println("Error:", err)
-	} else {
-		fmt.Println("PDF created successfully:", outputPDF)
+	if err = mergeImagesToPDF(outputPDF, imageFiles); err != nil {
+		return
 	}
-	return outputPDF
+	return
 }
 
 func mergeImagesToPDF(outputPDF string, imageFiles []string) error {
