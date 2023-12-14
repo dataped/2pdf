@@ -1,14 +1,14 @@
 package mapdf
 
 type Filelists struct {
-	Aplikasi      string `json:"aplikasi" bson:"aplikasi"`
-	User          string `json:"user" bson:"user"`
-	JenisDocument string `json:"jenisdokumen" bson:"jenisdokumen"`
-	Halaman       uint8  `json:"halaman" bson:"halaman"`
-	Filename      string `json:"filename" bson:"filename"`
-	Mime          string `json:"mime" bson:"mime"`
-	Urutan        uint8  `json:"urutan" bson:"urutan"`
-	Content       string `json:"content" bson:"content"`
+	Aplikasi      string `json:"aplikasi,omitempty" bson:"aplikasi"`
+	User          string `json:"user,omitempty" bson:"user"`
+	JenisDocument string `json:"jenisdokumen,omitempty" bson:"jenisdokumen"`
+	Halaman       uint8  `json:"halaman,omitempty" bson:"halaman"`
+	Filename      string `json:"filename,omitempty" bson:"filename"`
+	Mime          string `json:"mime,omitempty" bson:"mime"`
+	Urutan        uint8  `json:"urutan,omitempty" bson:"urutan"`
+	Content       string `json:"content,omitempty" bson:"content"`
 }
 
 type LoginHeader struct {
